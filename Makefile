@@ -16,9 +16,12 @@ mpi_ping_pong.o: mpi_ping_pong.c
 mpi_send_recv_ring.o: send_recv_ring.c
 	$(MPICC) $< -o $@
 
-mpi_dynamic_recv: mpi_dynam_check_status.o
+mpi_dynamic_recv: mpi_dynam_check_status.o mpi_dynam_probe.o
 
 mpi_dynam_check_status.o: mpi_dynam_check_status.c
+	$(MPICC) $< -o $@
+
+mpi_dynam_probe.o: mpi_probe.c
 	$(MPICC) $< -o $@
 
 clean:
